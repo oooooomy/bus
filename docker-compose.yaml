@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+
+  # MySQL 服务
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user123
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - bus-network
+
+  # Redis 服务
+  redis:
+    image: redis:7.0-alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - bus-network
+
+  # Nacos 服务
+  nacos:
+    image: nacos/nacos-server:v3.0.2
+    container_name: nacos
+    environment:
+      - MODE=standalone
+      - NACOS_AUTH_TOKEN=5+J8v7Qe2rXwYhNpLkSdTfUgWmZoVxCyBqA3D4E6F7G=
+      - NACOS_AUTH_IDENTITY_KEY=nacos
+      - NACOS_AUTH_IDENTITY_VALUE=nacos
+      - NACOS_USER_NACOS_USERNAME=nacos
+      - NACOS_USER_NACOS_PASSWORD=nacos
+    ports:
+      - "8080:8080"
+      - "8848:8848"
+      - "9848:9848"
+    networks:
+      - bus-network
+
+# 定义网络
+networks:
+  bus-network:
+    driver: bridge
+
+# 定义数据卷
+volumes:
+  mysql_data:
+  redis_data:

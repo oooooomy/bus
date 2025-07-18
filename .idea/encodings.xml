@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/bus-booking/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bus-booking/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bus-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bus-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bus-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bus-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bus-order/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bus-order/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bus-payment/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bus-payment/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bus-schedule/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bus-schedule/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bus-ticket/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bus-ticket/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bus-user/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bus-user/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
