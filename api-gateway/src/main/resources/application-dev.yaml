@@ -1,0 +1,30 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      default-filters:
+      routes:
+        - id: order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/api/order/**
+        - id: payment-service
+          uri: lb://payment-service
+          predicates:
+            - Path=/api/payment/**
+        - id: schedule-service
+          uri: lb://schedule-service
+          predicates:
+            - Path=/api/schedule/**
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/api/user/**
+            - Path=/api/auth/**

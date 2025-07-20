@@ -8,12 +8,12 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>bus-common</module>
-        <module>bus-user</module>
-        <module>bus-gateway</module>
-        <module>bus-order</module>
-        <module>bus-payment</module>
-        <module>bus-schedule</module>
+        <module>common</module>
+        <module>api-gateway</module>
+        <module>user-service</module>
+        <module>order-service</module>
+        <module>payment-service</module>
+        <module>schedule-service</module>
     </modules>
 
     <properties>
