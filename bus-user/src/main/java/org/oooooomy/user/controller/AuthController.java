@@ -23,7 +23,7 @@ public class AuthController {
     }
 
     @PostMapping("/logout")
-    public R<?> logout(@RequestBody User user) {
+    public R<Void> logout(@RequestBody User user) {
         return R.success();
     }
 

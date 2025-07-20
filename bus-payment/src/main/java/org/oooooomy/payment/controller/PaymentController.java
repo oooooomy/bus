@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class PaymentController {
 
     @PostMapping("/request")
-    public R<?> requestPay() {
+    public R<Void> requestPay() {
         return R.success();
     }
 
     @PostMapping("/notify")
-    public R<?> payNotify() {
+    public R<Void> payNotify() {
         return R.success();
     }
 

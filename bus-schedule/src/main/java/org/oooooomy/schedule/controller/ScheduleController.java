@@ -1,13 +1,11 @@
 package org.oooooomy.schedule.controller;
 
 import jakarta.annotation.Resource;
+import org.oooooomy.common.enums.ExceptionCode;
 import org.oooooomy.common.response.R;
 import org.oooooomy.schedule.model.entity.Schedule;
 import org.oooooomy.schedule.service.ScheduleService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,35 +15,30 @@ public class ScheduleController {
 
     @Resource
     private ScheduleService scheduleService;
-//    班次查询接口
-//    GET  /schedules                     // 分页查询班次列表
-//    GET  /schedules/{id}                // 获取班次详情
-//    GET  /schedules/availability/{id}   // 实时查询余票（Redis缓存）
-
-//    库存操作接口
-//    POST /schedules/{id}/lock           // 锁定座位（Redis Lua原子操作）
-//    POST /schedules/{id}/release        // 释放座位
-
 
     /**
-     * 分页获取班次
-     * 管理员端查询接口
+     * 获取班次列表，数据量不大，不需要分页
      *
-     * @return 班次列表
+     * @return List<Schedule>
      */
     @GetMapping
-    public R<List<Schedule>> getByPage() {
-        return R.success(null);
+    public R<List<Schedule>> listSchedules() {
+        List<Schedule> schedules = scheduleService.list();
+        return R.success(schedules);
     }
 
     /**
-     * 根据日期查询班次列表，某一天的班次不会太大，不需要分页
-     * 用户端查询接口
+     * 获取班次列表，数据量不大，不需要分页
+     * 节假日通过修改班次承载人数
      *
-     * @return 班次列表
+     * @return List<Schedule>
      */
-    @GetMapping("/stu/searchByDay")
-    public R<List<Schedule>> searchByDay() {
+    @PutMapping
+    public R<Void> updateSchedule(@RequestBody Schedule schedule) {
+        boolean ok = scheduleService.updateById(schedule);
+        if (!ok) {
+            return R.failed(ExceptionCode.BUSINESS_ERROR);
+        }
         return R.success(null);
     }
 
@@ -58,6 +51,28 @@ public class ScheduleController {
     @GetMapping("/{id}")
     public R<Schedule> getScheduleById(@PathVariable Long id) {
         return R.success(scheduleService.getById(id));
+    }
+
+    /**
+     * 锁定座位（Redis Lua原子操作）
+     *
+     * @param id ScheduleId
+     * @return null
+     */
+    @PostMapping("/{id}/lock")
+    public R<Void> lock(@PathVariable Long id) {
+        return R.success();
+    }
+
+    /**
+     * 释放座位
+     *
+     * @param id ScheduleId
+     * @return null
+     */
+    @PostMapping("/{id}/release")
+    public R<Void> release(@PathVariable Long id) {
+        return R.success();
     }
 
 }
