@@ -1,5 +1,8 @@
 package org.oooooomy.common.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum ExceptionCode {
 
     // 系统错误
@@ -22,14 +25,6 @@ public enum ExceptionCode {
     ExceptionCode(Integer code, String message) {
         this.code = code;
         this.message = message;
-    }
-
-    public Integer getCode() {
-        return code;
-    }
-
-    public String getMessage() {
-        return message;
     }
 
 }

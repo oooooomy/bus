@@ -1,21 +1,18 @@
-package org.oooooomy.schedule.model.entity;
+package org.oooooomy.schedule.model.vo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalTime;
-import java.util.Date;
 
 @Getter
 @Setter
 @NoArgsConstructor
-@TableName("t_schedule")
-public class Schedule {
+public class ScheduleVO {
 
     /**
      * 班次ID
@@ -57,20 +54,5 @@ public class Schedule {
      * 票价
      */
     private BigDecimal price;
-
-    /**
-     * 状态(1-正常 0-取消)
-     */
-    private Integer status;
-
-    /**
-     * 创建时间
-     */
-    private Date createTime;
-
-    /**
-     * 更新时间
-     */
-    private Date updateTime;
 
 }
