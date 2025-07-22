@@ -39,11 +39,6 @@ public class Schedule {
     private LocalTime departureTime;
 
     /**
-     * 花费分钟数
-     */
-    private Integer spendMinutes;
-
-    /**
      * 总座位数
      */
     private Integer totalSeats;
